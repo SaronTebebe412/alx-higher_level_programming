@@ -1,65 +1,76 @@
 #!/usr/bin/python3
 """
-New class Rectangle
+defines a rectangle
 """
 
 
 class Rectangle:
-    """ Defines a rectangle """
+    """rectangle class"""
 
     def __init__(self, width=0, height=0):
-        self.width = width
-        self.height = height
+        """instantiation"""
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+        if width < 0:
+            raise ValueError("width must be >= 0")
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+        if height < 0:
+            raise ValueError("height must be >= 0")
+        self.__width = width
+        self.__height = height
 
-    """ WIDTH """
     @property
     def width(self):
-        return (self.__width)
+        """retrieve width"""
+        return self.__width
+
+    @property
+    def height(self):
+        """retrieve height"""
+        return self.__height
 
     @width.setter
     def width(self, value):
-        if type(value) != int:
+        """sets width"""
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
         self.__width = value
 
-    """ HEIGHT """
-    @property
-    def height(self):
-        return (self.__height)
-
     @height.setter
     def height(self, value):
-        if type(value) != int:
+        """sets height"""
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
 
-    """ Rectangle area """
     def area(self):
-        return (self.__height * self.__width)
+        """returns the area"""
+        return self.__width * self.__height
 
-    """ Rectangle perimeter """
     def perimeter(self):
-        if self.width == 0:
-            return (0)
-        if self.height == 0:
-            return (0)
-        return (2 * (self.__height + self.__width))
+        """returns the perimeter"""
+        perimeter = 0
+        if self.__height is not 0 or self.__width is not 0:
+            perimeter = self.__width * 2 + self.__height * 2
+        return perimeter
 
-    """ Returns printable string representation
-    of an instance
-    """
     def __str__(self):
-        empty_string = ""
+        """print rectangle using #"""
+        str_ = ""
+        if self.__width == 0 or self. __height == 0:
+            return ""
+        for i in range(self.__height):
+            if i < (self.__height - 1):
+                str_ += ("#" * self.__width) + "\n"
+            else:
+                str_ += ("#" * self.__width)
+        return str_
 
-        if self.__width == 0 or self.__height == 0:
-            return (empty_string)
-
-        return (((# * self.width) + "\n") * self.height)[:-1]
-
-    """ Returns an “official” string representation of an instance """
     def __repr__(self):
-        return ("Rectangle({:d}, {:d})".format(self.__width, self.__height))
+        """repr method to enable create new instance using #"""
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)

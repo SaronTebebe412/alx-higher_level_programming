@@ -1,15 +1,11 @@
 #!/usr/bin/python3
 """
-contains the MyList class
+Contains the class BaseGeometry
 """
 
 
-class MyList(list):
-    """a subclass of list"""
-    def __init__(self):
-        """initializes the object"""
-        super().__init__()
-
-    def print_sorted(self):
-        """prints the sorted list"""
-        print(sorted(self))
+class BaseGeometry:
+    """A class with public attribute area"""
+    def area(self):
+        """raises an exception when called"""
+        raise Exception("area() is not implemented")

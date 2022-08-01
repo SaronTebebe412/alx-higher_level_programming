@@ -1,14 +1,15 @@
 #!/usr/bin/python3
 """
-Contains definition of the class BaseGeometry
+contains the MyList class
 """
 
 
-class BaseGeometry():
-        """Definition of class BaseGeometry"""
+class MyList(list):
+    """a subclass of list"""
+    def __init__(self):
+        """initializes the object"""
+        super().__init__()
 
-            def area(self):
-                        """Definition of area method.
-           Raises an Exception with message 'area() is not implemented'"""
-                                raise Exception("area() is not implemented")
-                            
+    def print_sorted(self):
+        """prints the sorted list"""
+        print(sorted(self))

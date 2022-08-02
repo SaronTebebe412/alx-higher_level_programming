@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""Pascals Triangle
+"""Pascal's Triangle"""
 
 
 def pascal_triangle(n):
-    Represent Pascals Triangle of size n.
+    """Represent Pascal's Triangle of size n.
 
     Return:
         a list of lists of integers representing

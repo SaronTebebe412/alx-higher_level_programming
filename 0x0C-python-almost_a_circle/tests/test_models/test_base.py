@@ -84,19 +84,19 @@ class TestBase_instantiation(unittest.TestCase):
         self.assertEqual(range(5), Base(range(5)).id)
 
     def test_bytes_id(self):
-        self.assertEqual(bPython, Base(bPython).id)
+        self.assertEqual(b'Python', Base(b'Python').id)
 
     def test_bytearray_id(self):
-        self.assertEqual(bytearray(babcefg), Base(bytearray(babcefg)).id)
+        self.assertEqual(bytearray(b'abcefg'), Base(bytearray(b'abcefg')).id)
 
     def test_memoryview_id(self):
-        self.assertEqual(memoryview(babcefg), Base(memoryview(babcefg)).id)
+        self.assertEqual(memoryview(b'abcefg'), Base(memoryview(b'abcefg')).id)
 
     def test_inf_id(self):
-        self.assertEqual(float(inf), Base(float(inf)).id)
+        self.assertEqual(float('inf'), Base(float('inf')).id)
 
     def test_NaN_id(self):
-        self.assertNotEqual(float(nan), Base(float(nan)).id)
+        self.assertNotEqual(float('nan'), Base(float('nan')).id)
 
     def test_two_args(self):
         with self.assertRaises(TypeError):
@@ -544,4 +544,3 @@ class TestBase_load_from_file_csv(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
